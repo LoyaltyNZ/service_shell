@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+  - 2.2.3
+
+addons:
+  postgresql: "9.3"
+
+# http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/
+sudo: false
+
+before_script:
+  - psql -c 'create database service_shell_test;' -U postgres
+
+script:
+  - RACK_ENV=test bundle exec rake db:migrate --trace
+  - TZ=Pacific/Auckland bundle exec rspec spec --backtrace

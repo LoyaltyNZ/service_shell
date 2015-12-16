@@ -1,0 +1,115 @@
+#!/bin/bash
+function version_bump {
+  echo "Bumping VERSION file to $1"
+  $FULLRUN && echo $1 > VERSION
+  $FULLRUN && echo "VERSION file now at `cat VERSION`"
+  $FULLRUN || echo "VERSION file would be at $1"
+}
+
+function commit_version_bump {
+  echo "Commiting VERSION file change"
+  $FULLRUN && git add VERSION
+  $FULLRUN && git commit -m "Bumping version to $1"
+  echo "And pushing"
+  $FULLRUN && git push
+}
+
+function tag_release {
+  echo "Tagging current with $1"
+  $FULLRUN && git tag -a "$1" -m "version $2"
+  echo "And pushing"
+  $FULLRUN && git push --tags
+}
+
+function next_major {
+  CURRENT_VERSION=$1
+  vers=(${CURRENT_VERSION//./ })
+
+  # if currently using major.minor.patch adjust accordingly to just major.patch
+  if [[ ${#vers[@]} == 3 ]]
+  then
+    MAJOR=${vers[1]}
+  else
+    MAJOR=${vers[0]}
+  fi
+  echo "$(($MAJOR + 1)).0"
+}
+
+function next_minor {
+  CURRENT_VERSION=$1
+  vers=(${CURRENT_VERSION//./ })
+
+  # if currently using major.minor.patch leave that way until the next none
+  # patch build
+  if [[ ${#vers[@]} == 3 ]]
+  then
+    echo "${vers[0]}.${vers[1]}.$((${vers[2]} + 1))"
+  else
+    echo "${vers[0]}.$((${vers[1]} + 1))"
+  fi
+}
+
+function release_branch {
+  CURRENT_VERSION=$1
+  vers=(${CURRENT_VERSION//./ })
+  if [[ ${#vers[@]} == 3 ]]
+  then
+    BRANCH_NAME="release/${vers[0]}.${vers[1]}"
+  else
+    BRANCH_NAME="release/${vers[0]}"
+  fi
+
+  echo "creating release branch: $BRANCH_NAME"
+  $FULLRUN && git checkout -b $BRANCH_NAME
+  echo "And pushing"
+  $FULLRUN && git push --set-upstream origin $BRANCH_NAME
+}
+
+FULLRUN=true
+while getopts ":d" opt; do
+  case $opt in
+    d)
+      $FULLRUN && echo "Setting up dry run" >&2
+      export FULLRUN=false
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
+#exit early if uncommited/pushed changes exist
+BRANCH_NAME=$(git name-rev --name-only HEAD)
+REMOTE_DIFFS=$(git log origin/$BRANCH_NAME..$BRANCH_NAME)
+LOCAL_DIFFS=$(git status -s)
+if [[ -n $LOCAL_DIFFS ]] || [[ -n $REMOTE_DIFFS ]]; then
+  echo "Exiting as there exits uncommited and/or unpushed changes"
+  $FULLRUN && exit 1
+fi
+
+CURRENT_VERSION=`cat VERSION`
+echo "Current version: $CURRENT_VERSION"
+
+BRANCH=false
+
+read -p "Is this a patch release y/n [n]" PATCH
+PATCH=${PATCH:-N}
+
+if [[ $PATCH =~ ^([yY][eE][sS]|[yY])$ ]]
+then
+  NEXT_VERSION=$(next_minor $CURRENT_VERSION)
+  BRANCH=false
+else
+  NEXT_VERSION=$(next_major $CURRENT_VERSION)
+  BRANCH=true
+fi
+read -p "Next version [$NEXT_VERSION]" VERSION
+VERSION=${VERSION:-$NEXT_VERSION}
+
+TAG_NAME="v$VERSION"
+
+version_bump $VERSION
+commit_version_bump $VERSION
+$BRANCH && release_branch $VERSION
+tag_release $TAG_NAME $VERSION

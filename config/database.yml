@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  database: service_shell_development
+
+development:
+  <<: *default
+  database: service_shell_development
+
+production:
+  <<: *default
+  database: service_shell
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+#
+test:
+  <<: *default
+  database: service_shell_test
