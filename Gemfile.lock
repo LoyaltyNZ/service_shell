@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pond/sdoc.git
-  revision: 4fe40b26696bc432cee37925fc7ce61673b27583
+  revision: 5c5a85694027e946adeadfaad43cca11320f9b4d
   branch: master
   specs:
     sdoc (0.4.1)
@@ -24,14 +24,14 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    airbrake (4.3.4)
+    airbrake (4.3.5)
       builder
       multi_json
     arel (6.0.3)
     builder (3.2.2)
     byebug (8.2.1)
     coderay (1.1.0)
-    dalli (2.7.4)
+    dalli (2.7.5)
     database_cleaner (1.5.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -60,7 +60,7 @@ GEM
       ffi
       guard (~> 2.0)
       spoon
-    hoodoo (1.0.2)
+    hoodoo (1.0.5)
       dalli (~> 2.7)
       kgio (~> 2.9)
       uuidtools (~> 2.1)
@@ -73,7 +73,7 @@ GEM
     listen (3.0.5)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    lumberjack (1.0.9)
+    lumberjack (1.0.10)
     method_source (0.8.2)
     minitest (5.8.3)
     multi_json (1.11.2)
@@ -97,15 +97,16 @@ GEM
     racksh (1.0.0)
       rack (>= 1.0)
       rack-test (>= 0.5)
-    rake (10.4.2)
+    rake (10.5.0)
     raygun4ruby (1.1.9)
       httparty (~> 0.11)
       json
       rack
-    rb-fsevent (0.9.6)
+    rb-fsevent (0.9.7)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    rdoc (4.2.0)
+    rdoc (4.2.1)
+      json (~> 1.4)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -115,7 +116,7 @@ GEM
     rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
-    rspec-mocks (3.4.0)
+    rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
@@ -166,4 +167,4 @@ DEPENDENCIES
   timecop
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
