@@ -5,13 +5,13 @@
 
 # Fundamental architecture
 
-  # For queue-based operation with Alchemy AMQ, add this
+  # For queue-based operation with Alchemy Flux, add this
   # BETWEEN the Rack and Hoodoo lines:
   #
-  #   gem 'alchemy-amq', '~> 1.0'
+  #   gem 'alchemy-flux', '~> 0.1'
 
   gem 'rack',   '~> 1.5'
-  gem 'hoodoo', '~> 1.0'
+  gem 'hoodoo', '~> 1.1'
 
 # ActiveRecord and PostgreSQL
 
