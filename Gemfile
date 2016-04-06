@@ -11,7 +11,7 @@
   #   gem 'alchemy-flux', '~> 1.0'
 
   gem 'rack',   '~> 1.6'
-  gem 'hoodoo', '~> 1.5'
+  gem 'hoodoo', '~> 1.7'
 
 # ActiveRecord and PostgreSQL
 
