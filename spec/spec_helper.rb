@@ -17,6 +17,7 @@ SimpleCov.start do
   add_group 'Interfaces',      'service/interfaces'
   add_group 'Resources',       'service/resources'
   add_group 'Models',          'service/models'
+  add_group 'Monkeys',         'service/monkeys'
   add_group 'Generators',      'generators'
   add_group 'Configuration',   'config'
   add_group 'Service',         'service.rb'
