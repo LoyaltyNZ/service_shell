@@ -11,7 +11,7 @@
   #   gem 'alchemy-flux', '~> 1.0'
 
   gem 'rack',   '~> 1.6'
-  gem 'hoodoo', '~> 1.7'
+  gem 'hoodoo', '~> 1.8'
 
 # ActiveRecord and PostgreSQL
 
@@ -29,11 +29,14 @@
 
   gem 'rake', '~> 10.3'
 
-  # Service shell, similar to Rails console, but for any Rack application/
+  # Service shell, similar to Rails console, but for any Rack application;
+  # likewise a database console, similar to Rails dbconsole.
   #
   # https://github.com/sickill/racksh
+  # https://github.com/pond/rackdb
   #
   gem 'racksh', '~> 1.0'
+  gem 'rackdb', '~> 0.0'
 
 # Development and test support
 

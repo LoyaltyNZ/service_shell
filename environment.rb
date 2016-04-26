@@ -70,9 +70,11 @@ require specific_environment if File.exists?( specific_environment )
 
 Dir[ 'config/initializers/**/*.rb'     ].sort.each { | f | require f }
 
-# Load all model, resource, implementation and interface classes.
+# Load model, resource, implementation and interface classes, then load
+# any monkey patches that might be present.
 
 Dir[ 'service/models/**/*.rb'          ].sort.each { | f | require f }
 Dir[ 'service/resources/**/*.rb'       ].sort.each { | f | require f }
 Dir[ 'service/implementations/**/*.rb' ].sort.each { | f | require f }
 Dir[ 'service/interfaces/**/*.rb'      ].sort.each { | f | require f }
+Dir[ 'service/monkeys/**/*.rb'         ].sort.each { | f | require f }
