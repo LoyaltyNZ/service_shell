@@ -36,7 +36,7 @@
   # https://github.com/pond/rackdb
   #
   gem 'racksh', '~> 1.0'
-  gem 'rackdb', '~> 0.0'
+  gem 'rackdb', '~> 1.0'
 
 # Development and test support
 
