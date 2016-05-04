@@ -1,6 +1,6 @@
 # Prerequisites
 
-  ruby   '2.2.4'
+  ruby   '2.2.5'
   source 'https://rubygems.org'
 
 # Fundamental architecture
@@ -36,7 +36,7 @@
   # https://github.com/pond/rackdb
   #
   gem 'racksh', '~> 1.0'
-  gem 'rackdb', '~> 0.0'
+  gem 'rackdb', '~> 1.0'
 
 # Development and test support
 
