@@ -6,7 +6,7 @@ This is an empty Hoodoo service shell. See the [Hoodoo gem](https://github.com/L
 * To create a *new service*: *install the Hoodoo Gem* directly or find some software component locally that has it already bundled; then run (perhaps with `bundle exec`) `hoodoo --help`. RBEnv users may need to run `rbenv rehash` after installing the Gem in order for the `hoodoo` executable to be available. Follow the printed (terse) usage instructions.
 * In either case: use `bundle install` to install required gems, as usual.
 
-Ruby 2.3.1 is _required_ for service development.
+Ruby 2.3.3 is _required_ for service development.
 
 To get started you will need to create an implementation class in folder `service/implementations`, an interface class referring to it in `service/interfaces` and update `service.rb` so that it refers to the interface class(es); delete the guard `raise` statement. Resource descriptions are put in `service/resources`, usually within a namespace module. ActiveRecord models can be put in `service/models`. There is a `db` folder for schema and migrations; see `rake --tasks` for more. A Rails-like `config` folder includes `config/database.yml` and RSpec-based tests live inside `spec`.
 
