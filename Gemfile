@@ -22,7 +22,7 @@
 # Instrumentation
 
   gem 'newrelic_rpm', '~> 3.9'
-  gem 'airbrake',     '~> 4.1'
+  gem 'airbrake',     '~> 5.6'
   gem 'raygun4ruby',  '~> 1.1'
 
 # Maintenance

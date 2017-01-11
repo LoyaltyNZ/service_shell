@@ -1,10 +1,11 @@
-# To enable Airbrake support, fill in the Airbrake API key for the Airbrake
-# project of your choice and uncomment the code below.
+# To enable Airbrake support, fill in the Airbrake project ID and key for
+# the Airbrake project of your choice and uncomment the code below.
 
 # require 'airbrake'
 #
 # Airbrake.configure do | config |
-#   config.api_key = 'YOUR_AIRBRAKE_API_KEY'
+#   config.project_id  = 'YOUR_AIRBRAKE_PROJECT_ID'
+#   config.project_key = 'YOUR_AIRBRAKE_PROJECT_KEY'
 # end
 #
 # Hoodoo::Services::Middleware::ExceptionReporting.add(
