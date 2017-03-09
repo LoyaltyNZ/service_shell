@@ -11,22 +11,21 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (4.2.7.1)
-      activesupport (= 4.2.7.1)
+    activemodel (4.2.8)
+      activesupport (= 4.2.8)
       builder (~> 3.1)
-    activerecord (4.2.7.1)
-      activemodel (= 4.2.7.1)
-      activesupport (= 4.2.7.1)
+    activerecord (4.2.8)
+      activemodel (= 4.2.8)
+      activesupport (= 4.2.8)
       arel (~> 6.0)
-    activesupport (4.2.7.1)
+    activesupport (4.2.8)
       i18n (~> 0.7)
-      json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    airbrake (5.7.0)
-      airbrake-ruby (~> 1.7)
-    airbrake-ruby (1.7.1)
+    airbrake (5.8.1)
+      airbrake-ruby (~> 1.8)
+    airbrake-ruby (1.8.0)
     arel (6.0.4)
     builder (3.2.3)
     byebug (9.0.6)
@@ -40,7 +39,7 @@ GEM
       activesupport (>= 3.0.0)
     faker (1.7.3)
       i18n (~> 0.5)
-    ffi (1.9.17)
+    ffi (1.9.18)
     formatador (0.2.5)
     guard (2.14.1)
       formatador (>= 0.2.4)
@@ -60,11 +59,11 @@ GEM
       ffi
       guard (~> 2.0)
       spoon
-    hoodoo (1.14.0)
+    hoodoo (1.15.0)
       dalli (~> 2.7)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
-    i18n (0.8.0)
+    i18n (0.8.1)
     json (1.8.6)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -97,7 +96,7 @@ GEM
       rack (>= 1.0)
       rack-test (>= 0.5)
     rake (10.5.0)
-    raygun4ruby (1.1.12)
+    raygun4ruby (1.2.1)
       httparty (> 0.13.7)
       json
       rack
@@ -131,7 +130,7 @@ GEM
     spoon (0.0.6)
       ffi
     thor (0.19.4)
-    thread_safe (0.3.5)
+    thread_safe (0.3.6)
     timecop (0.8.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -169,4 +168,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.3
+   1.14.5
