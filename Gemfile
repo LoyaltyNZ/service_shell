@@ -21,8 +21,8 @@
 
 # Instrumentation
 
-  gem 'newrelic_rpm', '~> 3.9'
-  gem 'airbrake',     '~> 4.1'
+  gem 'newrelic_rpm', '~> 3.17.0' # v3.18+ deletes methods upon which we rely!
+  gem 'airbrake',     '~> 5.6'
   gem 'raygun4ruby',  '~> 1.1'
 
 # Maintenance
