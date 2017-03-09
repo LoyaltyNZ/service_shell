@@ -79,7 +79,15 @@ while getopts ":d" opt; do
   esac
 done
 
-#exit early if uncommited/pushed changes exist
+# https://git-scm.com/docs/git-symbolic-ref
+#
+# "Typically you would give HEAD as the <name> argument to see which branch
+# your working tree is on."
+#
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+
+# Exit early if uncommited/pushed changes exist.
+
 BRANCH_NAME=$(git name-rev --name-only HEAD)
 REMOTE_DIFFS=$(git log origin/$BRANCH_NAME..$BRANCH_NAME)
 LOCAL_DIFFS=$(git status -s)
