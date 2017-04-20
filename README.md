@@ -22,7 +22,7 @@ These use [`rspec`](http://rspec.info) - run them with:
 bundle exec rspec
 ```
 
-Coverage for existing shell template code is provided, including one simple integration test present which will run on the empty shell **but intentionally fail** once you start writing a real service implementation. Read the comments in the test source at `spec/integration/example_spec.rb` for important notes on how testing works, run `rspec` on the out-of-box empty shell if you want to verify that it's all OK, then delete the test and fill in the `service.rb` file so it doesn't `raise` the initial warning exception.
+Coverage for existing shell template code is provided, including one simple integration test present which will run on the empty shell **but intentionally fail** once you start writing a real service implementation. Read the comments in the test source at `spec/service/integration/example_spec.rb` for important notes on how testing works, run `rspec` on the out-of-box empty shell if you want to verify that it's all OK, then delete the test and fill in the `service.rb` file so it doesn't `raise` the initial warning exception.
 
 The [Hoodoo Testing Guide](https://loyaltynz.github.io/hoodoo/guides_0900_testing.html) has a lot more information and many examples.
 
