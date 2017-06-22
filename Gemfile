@@ -24,7 +24,11 @@
   gem 'newrelic_rpm', '~> 3.17.0' # v3.18+ deletes methods upon which we rely!
   gem 'airbrake',     '~> 4.1'
   gem 'raygun4ruby',  '~> 1.1'
-  # Currently forked until https://github.com/LoyaltyNZ/hoodoo/pull/210 is merged
+
+  # Currently forked until this feature is merged:
+  #
+  # https://github.com/DataDog/dd-trace-rb/pull/141 is merged
+  #
   gem 'ddtrace', git: 'https://github.com/whithajess/dd-trace-rb.git', branch: 'feature/rack_dynamic_tracing'
 
 # Maintenance
