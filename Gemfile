@@ -27,7 +27,7 @@
 
   # Currently forked until this feature is merged:
   #
-  # https://github.com/DataDog/dd-trace-rb/pull/141 is merged
+  # https://github.com/DataDog/dd-trace-rb/pull/141
   #
   gem 'ddtrace', git: 'https://github.com/whithajess/dd-trace-rb.git', branch: 'feature/rack_dynamic_tracing'
 
