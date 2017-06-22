@@ -25,6 +25,12 @@
   gem 'airbrake',     '~> 4.1'
   gem 'raygun4ruby',  '~> 1.1'
 
+  # Currently forked until this feature is merged:
+  #
+  # https://github.com/DataDog/dd-trace-rb/pull/141
+  #
+  gem 'ddtrace', git: 'https://github.com/whithajess/dd-trace-rb.git', branch: 'feature/rack_dynamic_tracing'
+
 # Maintenance
 
   gem 'rake', '~> 10.3'

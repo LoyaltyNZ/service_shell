@@ -16,6 +16,22 @@ if defined?( NewRelic )
 
 end
 
+# Recommended for Datadog automatic Rack monitoring.
+#
+# https://www.datadoghq.com
+# https://github.com/DataDog/dd-trace-rb
+#
+if defined?( Datadog )
+
+  require 'ddtrace/contrib/rack/middlewares'
+
+  use Datadog::Contrib::Rack::TraceMiddleware, {
+    tracer:  Service.config.com_datadoghq_datadog_tracer,
+    default_service: 'default_service'
+  }
+
+end
+
 # Tell Rack about the middleware.
 
 use( Hoodoo::Services::Middleware )
