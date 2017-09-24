@@ -10,7 +10,6 @@ require 'erb'
 require 'active_record'
 require 'active_support/core_ext/hash/indifferent_access'
 require 'rdoc/task'
-require 'sdoc'
 
 include ActiveRecord::Tasks
 
@@ -91,6 +90,8 @@ namespace :g do
 end
 
 Rake::RDocTask.new do | rd |
+ require 'sdoc'
+
  rd.rdoc_files.include( 'README.md', 'service/**/*.rb', 'lib/**/*.rb' )
  rd.rdoc_dir = 'docs/rdoc'
  rd.title = 'Platform Service: Generic'
