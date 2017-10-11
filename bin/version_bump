@@ -1,79 +1,61 @@
 #!/bin/bash
+
+# Script for updating the version of a service.
+# Usage: bin/version_bump
+# This will update the version file, tag the new version, and push both the commit and tag to the git remote.
+# In order to run to this script, your working directory must have no uncommitted and/or unpushed changes.
+#
+# `bin/version bump` without any arguments will generate a prerelease tag (vx.y.z-pre). You must be in a release branch to create this tag.
+# `bin/version bump -f` will finalize the current version as a release tag (vx.y.z). You must be in master for this tag to be created.
+# Note that final builds do not alter the VERSION file, but just create a release tag for the current version.
+
+set -e
+
 function version_bump {
   echo "Bumping VERSION file to $1"
-  $FULLRUN && echo $1 > VERSION
-  $FULLRUN && echo "VERSION file now at `cat VERSION`"
-  $FULLRUN || echo "VERSION file would be at $1"
+  echo $1 > VERSION
+  echo "VERSION file now at `cat VERSION`"
+  echo "VERSION file would be at $1"
 }
 
 function commit_version_bump {
   echo "Commiting VERSION file change"
-  $FULLRUN && git add VERSION
-  $FULLRUN && git commit -m "Bumping version to $1"
+  git add VERSION
+  git commit -m "Bumping version to $1"
   echo "And pushing"
-  $FULLRUN && git push
+  git push
 }
 
 function tag_release {
   echo "Tagging current with $1"
-  $FULLRUN && git tag -a "$1" -m "version $2"
+  git tag -a "$1" -m "version $2"
   echo "And pushing"
-  $FULLRUN && git push --tags
+  git push --tags
 }
 
 function next_major {
-  CURRENT_VERSION=$1
-  vers=(${CURRENT_VERSION//./ })
-
-  # if currently using major.minor.patch adjust accordingly to just major.patch
-  if [[ ${#vers[@]} == 3 ]]
-  then
-    MAJOR=${vers[1]}
-  else
-    MAJOR=${vers[0]}
-  fi
-  echo "$(($MAJOR + 1)).0"
+  echo "$NEXT_MAJOR.0.0"
 }
 
 function next_minor {
-  CURRENT_VERSION=$1
-  vers=(${CURRENT_VERSION//./ })
-
-  # if currently using major.minor.patch leave that way until the next none
-  # patch build
-  if [[ ${#vers[@]} == 3 ]]
-  then
-    echo "${vers[0]}.${vers[1]}.$((${vers[2]} + 1))"
-  else
-    echo "${vers[0]}.$((${vers[1]} + 1))"
-  fi
+  echo "$MAJOR.$NEXT_MINOR.0"
 }
 
-function release_branch {
-  CURRENT_VERSION=$1
-  vers=(${CURRENT_VERSION//./ })
-  if [[ ${#vers[@]} == 3 ]]
-  then
-    BRANCH_NAME="release/${vers[0]}.${vers[1]}"
-  else
-    BRANCH_NAME="release/${vers[0]}"
-  fi
-
-  echo "creating release branch: $BRANCH_NAME"
-  $FULLRUN && git checkout -b $BRANCH_NAME
-  echo "And pushing"
-  $FULLRUN && git push --set-upstream origin $BRANCH_NAME
+function next_micro {
+  echo "$MAJOR.$MINOR.$NEXT_MICRO"
 }
 
 FULLRUN=true
-while getopts ":d" opt; do
+PRERELEASE=true
+while getopts ":f" opt; do
   case $opt in
-    d)
-      $FULLRUN && echo "Setting up dry run" >&2
-      export FULLRUN=false
+    f)
+      $PRERELEASE && echo "Building final release tag" >&2
+      export PRERELEASE=false
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
+      echo "Use the -f flag to finalize a build"
       exit 1
       ;;
   esac
@@ -97,26 +79,62 @@ fi
 
 CURRENT_VERSION=`cat VERSION`
 echo "Current version: $CURRENT_VERSION"
-
-BRANCH=false
-
-read -p "Is this a patch release y/n [n]" PATCH
-PATCH=${PATCH:-N}
-
-if [[ $PATCH =~ ^([yY][eE][sS]|[yY])$ ]]
+VERSION_ARR=(${CURRENT_VERSION//./ })
+MAJOR=${VERSION_ARR[0]}
+NEXT_MAJOR=$((${VERSION_ARR[0]}+1))
+MINOR=${VERSION_ARR[1]}
+NEXT_MINOR=$((${VERSION_ARR[1]}+1))
+NEXT_MICRO=1
+if [[ ${#VERSION_ARR[@]} == 3 ]]
 then
-  NEXT_VERSION=$(next_minor $CURRENT_VERSION)
-  BRANCH=false
-else
-  NEXT_VERSION=$(next_major $CURRENT_VERSION)
-  BRANCH=true
+  NEXT_MICRO=$((${VERSION_ARR[2]}+1))
 fi
-read -p "Next version [$NEXT_VERSION]" VERSION
-VERSION=${VERSION:-$NEXT_VERSION}
 
-TAG_NAME="v$VERSION"
+if $PRERELEASE
+then
+  echo $BRANCH_NAME
+  if [[ ! $BRANCH_NAME =~ release/[0-9]+ ]]
+  then
+    echo "Exiting as version bumps must occur on release branches"
+    exit 1
+  fi
+  read -p "Is this a ma[j]or, mi[n]or or mi[c]ro release? [c]" PATCH
+  PATCH=${PATCH:-C}
 
-version_bump $VERSION
-commit_version_bump $VERSION
-$BRANCH && release_branch $VERSION
-tag_release $TAG_NAME $VERSION
+  if [[ $PATCH =~ ^([jJ])$ ]]
+  then
+    NEXT_VERSION=$(next_major)
+  elif [[ $PATCH =~ ^([nN])$ ]]
+  then
+    NEXT_VERSION=$(next_minor)
+  elif [[ $PATCH =~ ^([cC])$ ]]
+  then
+    NEXT_VERSION=$(next_micro)
+  else
+    echo "Unexpected argument given, aborting"
+    exit 1
+  fi
+  read -p "Enter new version number [Default $NEXT_VERSION]:" VERSION
+  VERSION=${VERSION:-$NEXT_VERSION}
+
+  TAG_NAME="v$VERSION-pre"
+
+  version_bump $VERSION
+  commit_version_bump $VERSION
+  tag_release $TAG_NAME $VERSION
+else
+  if [[ $BRANCH_NAME != "master" ]]
+  then
+    echo "Exiting as releases must be finalized on master"
+    exit 1
+  fi
+  read -p "Are you sure you want to finalize this version? [y/N]" CONFIRM
+  CONFIRM=${CONFIRM:-N}
+  if [[ $CONFIRM =~ ^([yY])$ ]]
+  then
+    TAG_NAME="v$CURRENT_VERSION"
+    tag_release $TAG_NAME $CURRENT_VERSION
+  else
+    echo "Aborting"
+  fi
+fi
