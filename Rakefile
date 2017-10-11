@@ -75,7 +75,7 @@ namespace :g do
 
     File.open( path, 'w' ) do | file |
       file.write <<-EOF.strip_heredoc
-        class #{migration_class} < ActiveRecord::Migration
+        class #{migration_class} < ActiveRecord::Migration[5.1]
           def up
           end
 

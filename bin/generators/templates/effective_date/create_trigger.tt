@@ -3,7 +3,7 @@
 # in "bin/generators/classes/effective_date_class.rb", the RDoc description
 # of Hoodoo::ActiveRecord::Dated and Hoodoo Guides for details.
 #
-class <%= config[ :migration_class ] %> < ActiveRecord::Migration
+class <%= config[ :migration_class ] %> < ActiveRecord::Migration[5.1]
   def up
     execute <<-SQL
       create trigger <%= table_name %>_ef_date_tr

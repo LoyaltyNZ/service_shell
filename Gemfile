@@ -1,6 +1,6 @@
 # Prerequisites
 
-  ruby   '2.3.3'
+  ruby   '2.3.5'
   source 'https://rubygems.org'
 
 # Fundamental architecture
@@ -8,28 +8,26 @@
   # For queue-based operation with Alchemy Flux, add this
   # BETWEEN the Rack and Hoodoo lines:
   #
-  #   gem 'alchemy-flux', '~> 1.1'
+  #   gem 'alchemy-flux', '~> 1.2'
 
-  gem 'rack',   '~> 2.0'
-  gem 'hoodoo', '~> 1.9'
+  gem 'rack',         '~> 2.0'
+#  gem 'hoodoo',       '~> 2.0'
+  gem 'hoodoo',
+      :git    => 'https://github.com/LoyaltyNZ/hoodoo',
+      :branch => 'feature/hoodoo_2'
 
 # ActiveRecord and PostgreSQL
 
-  gem 'activerecord',  '~> 4.1', :require => 'active_record'
-  gem 'activesupport', '~> 4.1', :require => 'active_support'
-  gem 'pg',            '~> 0.17'
+  gem 'activerecord',  '~> 5.1', :require => 'active_record'
+  gem 'activesupport', '~> 5.1', :require => 'active_support'
+  gem 'pg',            '~> 0.21'
 
 # Instrumentation
 
-  gem 'newrelic_rpm', '~> 3.17.0' # v3.18+ deletes methods upon which we rely!
-  gem 'airbrake',     '~> 4.1'
+  gem 'newrelic_rpm', '~> 4.3'
+  gem 'ddtrace',      '~> 0.9'
+  gem 'airbrake',     '~> 6.2'
   gem 'raygun4ruby',  '~> 1.1'
-
-  # Currently forked until this feature is merged:
-  #
-  # https://github.com/DataDog/dd-trace-rb/pull/141
-  #
-  gem 'ddtrace', git: 'https://github.com/whithajess/dd-trace-rb.git', branch: 'feature/rack_dynamic_tracing'
 
 # Maintenance
 
@@ -42,7 +40,7 @@
   # https://github.com/pond/rackdb
   #
   gem 'racksh', '~> 1.0'
-  gem 'rackdb', '~> 1.1'
+  gem 'rackdb', '~> 2.0'
 
 # Development and test support
 
@@ -81,7 +79,10 @@
     gem 'byebug'
     gem 'pry-byebug'
 
-    # used for the migration generators
+    # Used for the migration generators.
+    #
+    # https://github.com/erikhuda/thor
+    #
     gem 'thor'
 
   end
