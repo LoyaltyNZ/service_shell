@@ -26,8 +26,8 @@ if defined?( Datadog )
   require 'ddtrace/contrib/rack/middlewares'
 
   use Datadog::Contrib::Rack::TraceMiddleware, {
-    tracer:  Service.config.com_datadoghq_datadog_tracer,
-    default_service: 'default_service'
+    :tracer          => Service.config.com_datadoghq_datadog_tracer,
+    :default_service => 'service_shell'
   }
 
 end
