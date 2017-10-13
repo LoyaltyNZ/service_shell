@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/LoyaltyNZ/hoodoo
-  revision: 98d4c60fcc397628b598e0544b217f8a1f2b5be5
+  revision: 7e64c2c18ebb742b77367a00cba9da26daa72ada
   branch: feature/hoodoo_2
   specs:
     hoodoo (2.0.0)
@@ -32,7 +32,7 @@ GEM
       tzinfo (~> 1.1)
     airbrake (6.3.0)
       airbrake-ruby (~> 2.4)
-    airbrake-ruby (2.4.0)
+    airbrake-ruby (2.4.2)
     arel (8.0.0)
     byebug (9.1.0)
     coderay (1.1.2)
