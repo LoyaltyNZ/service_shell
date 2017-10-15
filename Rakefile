@@ -74,7 +74,7 @@ namespace :g do
 
     File.open( path, 'w' ) do | file |
       file.write <<-EOF.strip_heredoc
-        class #{migration_class} < ActiveRecord::Migration
+        class #{migration_class} < ActiveRecord::Migration[5.1]
           def up
           end
 
@@ -90,11 +90,11 @@ namespace :g do
 end
 
 Rake::RDocTask.new do | rd |
- require 'sdoc'
+  require 'sdoc'
 
- rd.rdoc_files.include( 'README.md', 'service/**/*.rb', 'lib/**/*.rb' )
- rd.rdoc_dir = 'docs/rdoc'
- rd.title = 'Platform Service: Generic'
- rd.main = 'README.md'
- rd.generator = 'sdoc'
+  rd.rdoc_files.include( 'README.md', 'service/**/*.rb', 'lib/**/*.rb' )
+  rd.rdoc_dir = 'docs/rdoc'
+  rd.title = 'Platform Service: Generic'
+  rd.main = 'README.md'
+  rd.generator = 'sdoc'
 end

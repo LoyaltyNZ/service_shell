@@ -611,7 +611,20 @@ RSpec.describe Generators::EffectiveDate do
       # so the history table count should increase by the thread count once
       # everything has finished running.
       #
+      # Since ActiveRecord sets updated-at at the application level and since
+      # it does not lock thread-safe across this operation, a context switch
+      # might occur even in plain MRI Ruby when AR has set an updated-at, and
+      # is about to save to the database, but the I/O operation allows a
+      # switch to another thread. This means the later thread gets a record
+      # into the database first, causing the delayed one to fail as an attempt
+      # to insert an earlier record into the history chain.
+      #
+      # It is thus incumbent upon us to lock across the save operation, which
+      # weakens this test considerably; service authors Must Just Know This
+      # if operating in very tight timescales and multithreaded environments.
+      #
       it 'records all updates' do
+        s = Mutex.new
         r = model_klass.new
         r.save
 
@@ -620,12 +633,11 @@ RSpec.describe Generators::EffectiveDate do
             Thread.new() do
               m = model_klass.first
               m.data = i
-              m.save
+              s.synchronize { m.save }
             end
           end
           threads.each { | t | t.join }
         }.to change( history_model_klass, :count ).by( thread_count )
-
       end
     end
   end

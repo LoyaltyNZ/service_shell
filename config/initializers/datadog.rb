@@ -9,7 +9,7 @@
 # tracer = Datadog.tracer
 #
 # tracer.configure(
-#   :enabled   => [ 'test','development' ].exclude?( ENV[ 'RACK_ENV' ] ),
+#   :enabled   => ! [ 'test','development' ].include?( ENV[ 'RACK_ENV' ] ),
 #   :hostname  => ENV[ 'DD_AGENT_PORT_8126_TCP_ADDR' ],
 #   :port      => ENV[ 'DD_AGENT_PORT_8126_TCP_PORT' ]
 # )

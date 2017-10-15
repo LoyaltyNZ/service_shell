@@ -3,7 +3,7 @@ rvm:
   - 2.3.5
 
 addons:
-  postgresql: "9.4"
+  postgresql: "9.4" # (...or later)
 
 # http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/
 #

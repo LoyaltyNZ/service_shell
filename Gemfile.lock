@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/LoyaltyNZ/hoodoo
+  revision: c81113a9c4d47d4dfef6b045617f9c223e8ad66d
+  branch: feature/hoodoo_2
+  specs:
+    hoodoo (2.0.0)
+      dalli (~> 2.7)
+
+GIT
   remote: https://github.com/pond/sdoc.git
   revision: 5c5a85694027e946adeadfaad43cca11320f9b4d
   branch: master
@@ -8,38 +16,31 @@ GIT
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
 
-GIT
-  remote: https://github.com/whithajess/dd-trace-rb.git
-  revision: ec801dff9c5eb271edcfdba1bdf86ccc65f7f53c
-  branch: feature/rack_dynamic_tracing
-  specs:
-    ddtrace (0.7.2)
-      msgpack
-
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (4.2.10)
-      activesupport (= 4.2.10)
-      builder (~> 3.1)
-    activerecord (4.2.10)
-      activemodel (= 4.2.10)
-      activesupport (= 4.2.10)
-      arel (~> 6.0)
-    activesupport (4.2.10)
+    activemodel (5.1.4)
+      activesupport (= 5.1.4)
+    activerecord (5.1.4)
+      activemodel (= 5.1.4)
+      activesupport (= 5.1.4)
+      arel (~> 8.0)
+    activesupport (5.1.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
       minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    airbrake (4.3.8)
-      builder
-      multi_json
-    arel (6.0.4)
-    builder (3.2.3)
+    airbrake (6.3.0)
+      airbrake-ruby (~> 2.4)
+    airbrake-ruby (2.4.2)
+    arel (8.0.0)
     byebug (9.1.0)
     coderay (1.1.2)
+    concurrent-ruby (1.0.5)
     dalli (2.7.6)
     database_cleaner (1.6.1)
+    ddtrace (0.9.0)
+      msgpack
     diff-lcs (1.3)
     docile (1.1.5)
     erubis (2.7.0)
@@ -67,8 +68,6 @@ GEM
       ffi
       guard (~> 2.0)
       spoon
-    hoodoo (1.19.0)
-      dalli (~> 2.7)
     httparty (0.15.6)
       multi_xml (>= 0.5.2)
     i18n (0.8.6)
@@ -81,10 +80,9 @@ GEM
     method_source (0.9.0)
     minitest (5.10.3)
     msgpack (1.1.0)
-    multi_json (1.12.2)
     multi_xml (0.6.0)
     nenv (0.3.0)
-    newrelic_rpm (3.17.2.327)
+    newrelic_rpm (4.5.0.337)
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -98,8 +96,8 @@ GEM
     rack (2.0.3)
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
-    rackdb (1.1.1)
-      activerecord (~> 4)
+    rackdb (2.0.0)
+      activerecord (~> 5)
       rack (~> 2.0)
     racksh (1.0.0)
       rack (>= 1.0)
@@ -147,23 +145,23 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 4.1)
-  activesupport (~> 4.1)
-  airbrake (~> 4.1)
+  activerecord (~> 5.1)
+  activesupport (~> 5.1)
+  airbrake (~> 6.2)
   byebug
   database_cleaner (~> 1.3)
-  ddtrace!
+  ddtrace (~> 0.9)
   factory_girl (~> 4.4)
   faker (~> 1.4)
   guard-rspec
   guard-shotgun
-  hoodoo (~> 1.9)
-  newrelic_rpm (~> 3.17.0)
-  pg (~> 0.17)
+  hoodoo!
+  newrelic_rpm (~> 4.3)
+  pg (~> 0.21)
   pry-byebug
   rack (~> 2.0)
   rack-test (~> 0.6)
-  rackdb (~> 1.1)
+  rackdb (~> 2.0)
   racksh (~> 1.0)
   rake (~> 10.3)
   raygun4ruby (~> 1.1)
