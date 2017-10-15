@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/LoyaltyNZ/hoodoo
-  revision: 7e64c2c18ebb742b77367a00cba9da26daa72ada
+  revision: c81113a9c4d47d4dfef6b045617f9c223e8ad66d
   branch: feature/hoodoo_2
   specs:
     hoodoo (2.0.0)
