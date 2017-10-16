@@ -11,10 +11,7 @@
   #   gem 'alchemy-flux', '~> 1.2'
 
   gem 'rack',         '~> 2.0'
-#  gem 'hoodoo',       '~> 2.0'
-  gem 'hoodoo',
-      :git    => 'https://github.com/LoyaltyNZ/hoodoo',
-      :branch => 'feature/hoodoo_2'
+  gem 'hoodoo',       '~> 2.0'
 
 # ActiveRecord and PostgreSQL
 
