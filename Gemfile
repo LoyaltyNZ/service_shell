@@ -94,10 +94,10 @@
     #
     gem 'rack-test',        '~> 0.6'
 
-    # factory_girl provides a framework and DSL for defining and using
+    # factory_bot provides a framework and DSL for defining and using
     # factories.
     #
-    gem 'factory_girl',     '~> 4.4'
+    gem 'factory_bot',      '~> 4.8'
 
     # Strategies for cleaning databases. Can be used to ensure a clean state
     # for testing.
