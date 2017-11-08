@@ -11,7 +11,7 @@
   #   gem 'alchemy-flux', '~> 1.2'
 
   gem 'rack',         '~> 2.0'
-  gem 'hoodoo',       '~> 2.0'
+  gem 'hoodoo',       '~> 2.2'
 
 # ActiveRecord and PostgreSQL
 
@@ -23,12 +23,12 @@
 
   gem 'newrelic_rpm', '~> 4.3'
   gem 'ddtrace',      '~> 0.9'
-  gem 'airbrake',     '~> 6.2'
-  gem 'raygun4ruby',  '~> 1.1'
+  gem 'airbrake',     '~> 7.1'
+  gem 'raygun4ruby',  '~> 2.6'
 
 # Maintenance
 
-  gem 'rake', '~> 10.3'
+  gem 'rake', '~> 12.2'
 
   # Service shell, similar to Rails console, but for any Rack application;
   # likewise a database console, similar to Rails dbconsole.
