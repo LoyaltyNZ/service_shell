@@ -1,6 +1,6 @@
 # Prerequisites
 
-  ruby   '2.3.5'
+  ruby   '2.3.6'
   source 'https://rubygems.org'
 
 # Fundamental architecture
@@ -21,10 +21,29 @@
 
 # Instrumentation
 
-  gem 'newrelic_rpm', '~> 4.3'
-  gem 'ddtrace',      '~> 0.9'
-  gem 'airbrake',     '~> 7.1'
-  gem 'raygun4ruby',  '~> 2.6'
+  # Uncomment / remove as required.
+  #
+  # - https://github.com/newrelic/rpm
+  # - https://github.com/DataDog/dd-trace-rb
+  # - https://github.com/airbrake/airbrake-ruby
+  # - https://github.com/MindscapeHQ/raygun4ruby
+  #
+  # gem 'newrelic_rpm', '~> 4.3'
+  # gem 'ddtrace',      '~> 0.11'
+  # gem 'airbrake',     '~> 7.1'
+  # gem 'raygun4ruby',  '~> 2.6'
+
+# Workarounds
+
+  # FFI 1.9.21 is harmful. At the time of writing it appears to be fixed,
+  # but for some reason a 1.9.22 release has not been made.
+  #
+  # TODO: Remove me once FFI is fixed.
+  #
+  # - https://github.com/ffi/ffi/issues/607
+  # - https://github.com/ffi/ffi/issues/608
+  #
+  gem 'ffi', '1.9.18'
 
 # Maintenance
 
@@ -113,7 +132,4 @@
     #
     gem 'simplecov-rcov',   '~> 0.2'
 
-    # making it dead simple to test time-dependent code
-    #
-    gem 'timecop'
   end
