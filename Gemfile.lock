@@ -53,7 +53,7 @@ GEM
       ffi
       guard (~> 2.0)
       spoon
-    hoodoo (2.2.2)
+    hoodoo (2.2.3)
       dalli (~> 2.7)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
