@@ -17,7 +17,7 @@
 #            port:     ENV[ 'DD_AGENT_PORT_8126_TCP_PORT' ]
 #
 #   c.use :rack, distributed_tracing: true,
-#                service_name:        'your_service_name'
+#                service_name:        'service_shell'
 #
 #   # Examples below are optional. If you use Net/HTTP to call out to external
 #   # services, or for inter-resource calls on a non-AMQP deployment, keep the
