@@ -132,4 +132,8 @@
     #
     gem 'simplecov-rcov',   '~> 0.2'
 
+    # A gem which lets you 'freeze' or change the concept of "now" for tests.
+    #
+    gem 'timecop',          '~> 0.9'
+
   end
