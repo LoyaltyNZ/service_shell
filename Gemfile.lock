@@ -33,7 +33,7 @@ GEM
       activesupport (>= 3.0.0)
     faker (1.8.7)
       i18n (>= 0.7)
-    ffi (1.9.18)
+    ffi (1.9.22)
     formatador (0.2.5)
     guard (2.14.2)
       formatador (>= 0.2.4)
@@ -53,7 +53,7 @@ GEM
       ffi
       guard (~> 2.0)
       spoon
-    hoodoo (2.2.3)
+    hoodoo (2.3.0)
       dalli (~> 2.7)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -130,7 +130,6 @@ DEPENDENCIES
   database_cleaner (~> 1.3)
   factory_bot (~> 4.8)
   faker (~> 1.4)
-  ffi (= 1.9.18)
   guard-rspec
   guard-shotgun
   hoodoo (~> 2.2)

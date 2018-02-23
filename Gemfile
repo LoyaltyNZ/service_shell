@@ -33,18 +33,6 @@
   # gem 'airbrake',     '~> 7.1'
   # gem 'raygun4ruby',  '~> 2.6'
 
-# Workarounds
-
-  # FFI 1.9.21 is harmful. At the time of writing it appears to be fixed,
-  # but for some reason a 1.9.22 release has not been made.
-  #
-  # TODO: Remove me once FFI is fixed.
-  #
-  # - https://github.com/ffi/ffi/issues/607
-  # - https://github.com/ffi/ffi/issues/608
-  #
-  gem 'ffi', '1.9.18'
-
 # Maintenance
 
   gem 'rake', '~> 12.2'
