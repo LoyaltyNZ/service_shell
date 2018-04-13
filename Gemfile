@@ -37,6 +37,13 @@
 
   gem 'rake', '~> 12.2'
 
+  # For documentation generation via 'rake rdoc' and 'rake rerdoc'.
+  #
+  # https://github.com/pond/sdoc - which is a fork of the original:
+  # https://github.com/voloko/sdoc
+  #
+  gem 'sdoc', :git => 'https://github.com/pond/sdoc.git', :branch => 'master'
+
   # Service shell, similar to Rails console, but for any Rack application;
   # likewise a database console, similar to Rails dbconsole.
   #
@@ -62,13 +69,6 @@
     # https://github.com/guard/guard-rspec
     #
     gem 'guard-rspec', :require => false
-
-    # For documentation generation via 'rake rdoc' and 'rake rerdoc'.
-    #
-    # https://github.com/pond/sdoc - which is a fork of the original:
-    # https://github.com/voloko/sdoc
-    #
-    gem 'sdoc', :git => 'https://github.com/pond/sdoc.git', :branch => 'master'
 
   end
 
