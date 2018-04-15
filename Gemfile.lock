@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/pond/sdoc.git
-  revision: 0932600e8bce65391b56db44dd489913b7236d9c
+  revision: e1e35566f9f207bffb3511fea4779629de94d029
   branch: master
   specs:
-    sdoc (1.0.0)
+    sdoc (1.0.1)
       json
       rdoc (>= 5.0)
 
