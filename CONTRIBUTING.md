@@ -13,7 +13,7 @@ We love getting pull requests for new features or fixes!
 
 * Fork the project and clone your fork as your local working copy (`git clone git@github.com:[username]/service_shell.git`).
 * Create a topic branch to contain your change (`git checkout -b feature/[description]` or `git checkout -b hotfix/[description]`).
-* Make changes and ensure there's still full test and documentation coverage (`bundle exec rspec`, `bundle exec rake rerdoc`).
+* Make changes and ensure there's still full test coverage (`bundle exec rspec`).
 * If necessary, rebase your commits into logical chunks, without errors.
 * Push the branch up (`git push origin feature/[description]`).
 * Create a pull request against `LoyaltyNZ/service_shell` `master` branch describing what your change does and the why you think it should be merged.

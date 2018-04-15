@@ -1,6 +1,6 @@
 # Prerequisites
 
-  ruby   '2.3.6'
+  ruby   '2.3.7'
   source 'https://rubygems.org'
 
 # Fundamental architecture
@@ -11,13 +11,13 @@
   #   gem 'alchemy-flux', '~> 1.2'
 
   gem 'rack',         '~> 2.0'
-  gem 'hoodoo',       '~> 2.2'
+  gem 'hoodoo',       '~> 2.4'
 
 # ActiveRecord and PostgreSQL
 
-  gem 'activerecord',  '~> 5.1', :require => 'active_record'
-  gem 'activesupport', '~> 5.1', :require => 'active_support'
-  gem 'pg',            '~> 0.21'
+  gem 'activerecord',  '~> 5.2', :require => 'active_record'
+  gem 'activesupport', '~> 5.2', :require => 'active_support'
+  gem 'pg',            '~> 1.0'
 
 # Instrumentation
 
@@ -35,12 +35,12 @@
 
 # Maintenance
 
-  gem 'rake', '~> 12.2'
+  gem 'rake', '~> 12.3'
 
   # For documentation generation via 'rake rdoc' and 'rake rerdoc'.
   #
   # https://github.com/pond/sdoc - which is a fork of the original:
-  # https://github.com/voloko/sdoc
+  # https://github.com/zzak/sdoc
   #
   gem 'sdoc', :git => 'https://github.com/pond/sdoc.git', :branch => 'master'
 

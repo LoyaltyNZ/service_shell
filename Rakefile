@@ -96,5 +96,5 @@ Rake::RDocTask.new do | rd |
   rd.rdoc_dir = 'docs/rdoc'
   rd.title = 'Platform Service: Generic'
   rd.main = 'README.md'
-  rd.generator = 'sdoc'
+  rd.options << '--format=sdoc'
 end
