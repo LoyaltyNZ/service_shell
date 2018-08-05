@@ -14,4 +14,5 @@ before_script:
 
 script:
   - RACK_ENV=test bundle exec rake db:migrate --trace
+  - "bundle exec bundle-audit update && bundle exec bundle-audit check"
   - TZ=Pacific/Auckland bundle exec rspec spec --backtrace
