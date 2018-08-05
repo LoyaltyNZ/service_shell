@@ -8,10 +8,10 @@
   # For queue-based operation with Alchemy Flux, add this
   # BETWEEN the Rack and Hoodoo lines:
   #
-  #   gem 'alchemy-flux', '~> 1.2'
+  #   gem 'alchemy-flux', '~> 1.3'
 
   gem 'rack',         '~> 2.0'
-  gem 'hoodoo',       '~> 2.6'
+  gem 'hoodoo',       '~> 2.7'
 
 # ActiveRecord and PostgreSQL
 

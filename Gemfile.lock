@@ -56,7 +56,7 @@ GEM
       ffi
       guard (~> 2.0)
       spoon
-    hoodoo (2.6.1)
+    hoodoo (2.7.0)
       dalli (~> 2.7)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
@@ -136,7 +136,7 @@ DEPENDENCIES
   faker (~> 1.9)
   guard-rspec
   guard-shotgun
-  hoodoo (~> 2.6)
+  hoodoo (~> 2.7)
   pg (~> 1.0)
   pry-byebug
   rack (~> 2.0)
