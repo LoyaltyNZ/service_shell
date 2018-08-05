@@ -93,6 +93,10 @@
 
   group :test do
 
+    # Checks for vulnerabilities in bundled Gems (see also ".travis.yml").
+    #
+    gem 'bundler-audit'
+
     # Behaviour Driven Development for Ruby.
     #
     gem 'rspec',            '~> 3.8'
