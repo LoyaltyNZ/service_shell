@@ -8,10 +8,10 @@
   # For queue-based operation with Alchemy Flux, add this
   # BETWEEN the Rack and Hoodoo lines:
   #
-  #   gem 'alchemy-flux', '~> 1.2'
+  #   gem 'alchemy-flux', '~> 1.3'
 
   gem 'rack',         '~> 2.0'
-  gem 'hoodoo',       '~> 2.4'
+  gem 'hoodoo',       '~> 2.7'
 
 # ActiveRecord and PostgreSQL
 
@@ -28,10 +28,10 @@
   # - https://github.com/airbrake/airbrake-ruby
   # - https://github.com/MindscapeHQ/raygun4ruby
   #
-  # gem 'newrelic_rpm', '~> 4.3'
-  # gem 'ddtrace',      '~> 0.11'
-  # gem 'airbrake',     '~> 7.1'
-  # gem 'raygun4ruby',  '~> 2.6'
+  # gem 'newrelic_rpm', '~> 5.3'
+  # gem 'ddtrace',      '~> 0.13'
+  # gem 'airbrake',     '~> 7.3'
+  # gem 'raygun4ruby',  '~> 2.7'
 
 # Maintenance
 
@@ -93,28 +93,32 @@
 
   group :test do
 
+    # Checks for vulnerabilities in bundled Gems (see also ".travis.yml").
+    #
+    gem 'bundler-audit'
+
     # Behaviour Driven Development for Ruby.
     #
-    gem 'rspec',            '~> 3.1'
+    gem 'rspec',            '~> 3.8'
 
     # Rack::Test is a small, simple testing API for Rack apps.
     #
-    gem 'rack-test',        '~> 0.6'
+    gem 'rack-test',        '~> 1.1'
 
     # factory_bot provides a framework and DSL for defining and using
     # factories.
     #
-    gem 'factory_bot',      '~> 4.8'
+    gem 'factory_bot',      '~> 4.10'
 
     # Strategies for cleaning databases. Can be used to ensure a clean state
     # for testing.
     #
-    gem 'database_cleaner', '~> 1.3'
+    gem 'database_cleaner', '~> 1.7'
 
     # Faker, a port of Data::Faker from Perl, is used to easily generate fake
     # data: names, addresses, phone numbers, etc.
     #
-    gem 'faker',            '~> 1.4'
+    gem 'faker',            '~> 1.9'
 
     # Code coverage reports, generated in the 'coverage' folder when tests run.
     #
