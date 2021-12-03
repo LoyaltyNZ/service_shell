@@ -16,8 +16,11 @@ before_install:
   - chmod +x ./wait-for-it.sh
   - ./wait-for-it.sh 127.0.0.1:5432
 
-script:
+before_script:
   - bundler_version=$(grep -A 1 "BUNDLED WITH" Gemfile.lock | sed -n 2p | tr -d ' ') && gem install bundler --version "${bundler_version}"
+  - bundler version
+
+script:
   - psql -c 'create database service_shell_test;' -U postgres -h 127.0.0.1
   - RACK_ENV=test bundle exec rake db:migrate --trace
   - "bundle exec bundle-audit update && bundle exec bundle-audit check"
