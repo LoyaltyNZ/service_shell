@@ -1,18 +1,25 @@
 language: ruby
 rvm:
-  - 2.3.7
+  - 2.7.3
 
-addons:
-  postgresql: "9.4" # (...or later)
+services:
+  - docker
 
 # http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/
 #
 sudo: false
 
-before_script:
-  - psql -c 'create database service_shell_test;' -U postgres
+before_install:
+  - docker run -d -e POSTGRES_PASSWORD='' -e POSTGRES_HOST_AUTH_METHOD='trust' -p 127.0.0.1:5432:5432 postgres:13.3
+  - docker ps -a
+  - curl -LJO https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh
+  - chmod +x ./wait-for-it.sh
+  - ./wait-for-it.sh 127.0.0.1:5432
+  - bundler_version=$(grep -A 1 "BUNDLED WITH" Gemfile.lock | sed -n 2p | tr -d ' ') && gem install bundler --version "${bundler_version}"
+  - bundler version
 
 script:
+  - psql -c 'create database service_shell_test;' -U postgres -h 127.0.0.1
   - RACK_ENV=test bundle exec rake db:migrate --trace
   - "bundle exec bundle-audit update && bundle exec bundle-audit check"
   - TZ=Pacific/Auckland bundle exec rspec spec --backtrace
