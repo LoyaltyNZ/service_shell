@@ -1,6 +1,6 @@
 # Prerequisites
 
-  ruby   '2.3.7'
+  ruby   '2.7.3'
   source 'https://rubygems.org'
 
 # Fundamental architecture
