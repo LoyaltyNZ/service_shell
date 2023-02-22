@@ -1,6 +1,6 @@
 # Prerequisites
 
-  ruby   '2.7.3'
+  ruby   File.read('.ruby-version').chomp
   source 'https://rubygems.org'
 
 # Fundamental architecture
@@ -11,12 +11,12 @@
   #   gem 'alchemy-flux', '~> 1.3'
 
   gem 'rack',         '~> 2.0'
-  gem 'hoodoo',       '~> 2.7'
+  gem 'hoodoo',       '~> 3.2'
 
 # ActiveRecord and PostgreSQL
 
-  gem 'activerecord',  '~> 5.2', :require => 'active_record'
-  gem 'activesupport', '~> 5.2', :require => 'active_support'
+  gem 'activerecord',  '~> 7.0', :require => 'active_record'
+  gem 'activesupport', '~> 7.0', :require => 'active_support'
   gem 'pg',            '~> 1.0'
 
 # Instrumentation
@@ -26,12 +26,10 @@
   # - https://github.com/newrelic/rpm
   # - https://github.com/DataDog/dd-trace-rb
   # - https://github.com/airbrake/airbrake-ruby
-  # - https://github.com/MindscapeHQ/raygun4ruby
   #
   # gem 'newrelic_rpm', '~> 5.3'
   # gem 'ddtrace',      '~> 0.13'
   # gem 'airbrake',     '~> 7.3'
-  # gem 'raygun4ruby',  '~> 2.7'
 
 # Maintenance
 
@@ -48,10 +46,8 @@
   # likewise a database console, similar to Rails dbconsole.
   #
   # https://github.com/sickill/racksh
-  # https://github.com/pond/rackdb
   #
   gem 'racksh', '~> 1.0'
-  gem 'rackdb', '~> 2.0'
 
 # Development and test support
 
@@ -118,7 +114,7 @@
     # Faker, a port of Data::Faker from Perl, is used to easily generate fake
     # data: names, addresses, phone numbers, etc.
     #
-    gem 'faker',            '~> 1.9'
+    gem 'faker',            '~> 3.1'
 
     # Code coverage reports, generated in the 'coverage' folder when tests run.
     #

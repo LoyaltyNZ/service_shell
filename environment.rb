@@ -36,6 +36,9 @@ end
 
 Hoodoo::Services::Middleware.set_log_folder( File.join( Service.config.root, 'log' ) )
 
+# Allow serializing of symbols when using YAML.safe_load
+ActiveRecord.yaml_column_permitted_classes = [ Symbol ]
+
 # Wake up ActiveRecord using config/database.yml and a default UTC timezone.
 
 require 'yaml'
@@ -47,7 +50,7 @@ else
   path           = File.join( Service.config.root, 'config', 'database.yml' )
   erb_yaml_file  = File.read( path )
   pure_yaml_file = ERB.new( erb_yaml_file ).result
-  parsed_file    = YAML.load( pure_yaml_file )
+  parsed_file    = YAML.load( pure_yaml_file, aliases: true )
 
   if parsed_file.has_key?( Service.config.env )
     parsed_file[ Service.config.env ]

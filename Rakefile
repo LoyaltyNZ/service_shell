@@ -32,7 +32,7 @@ end
 # (!), typically "test" when you specified something else with RACK_ENV.
 
 DatabaseTasks.root             = root = File.expand_path( '..', __FILE__ )
-DatabaseTasks.env              = ( ENV[ 'RACK_ENV' ] || 'development' ).to_sym
+DatabaseTasks.env              = ( ENV[ 'RACK_ENV' ] || 'development' )
 DatabaseTasks.db_dir           = File.join( root, 'db' )
 DatabaseTasks.fixtures_path    = File.join( root, 'test', 'fixtures' )
 DatabaseTasks.migrations_paths = [ File.join( root, 'db', 'migrate' ) ]
@@ -56,7 +56,7 @@ task :environment do
     ActiveRecord::Base.establish_connection( ENV[ 'DATABASE_URL' ] )
   else
     ActiveRecord::Base.configurations = DatabaseTasks.database_configuration
-    ActiveRecord::Base.establish_connection( DatabaseTasks.env )
+    ActiveRecord::Base.establish_connection( DatabaseTasks.env.to_sym )
   end
 end
 
