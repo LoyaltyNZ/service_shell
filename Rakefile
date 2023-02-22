@@ -42,7 +42,7 @@ DatabaseTasks.database_configuration = begin
   path           = File.join( DatabaseTasks.root, 'config', 'database.yml' )
   erb_yaml_file  = File.read( path )
   pure_yaml_file = ERB.new( erb_yaml_file ).result
-  parsed_file    = HashWithIndifferentAccess[ YAML.load( pure_yaml_file ) ]
+  parsed_file    = HashWithIndifferentAccess[ YAML.load( pure_yaml_file, aliases: true ) ]
 
   if parsed_file[ DatabaseTasks.env ].blank?
     raise "Cannot find configuration for environment #{ DatabaseTasks.env.inspect }"
