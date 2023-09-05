@@ -40,6 +40,7 @@ Hoodoo::Services::Middleware.set_log_folder( File.join( Service.config.root, 'lo
 
 require 'yaml'
 require 'erb'
+require 'active_support/core_ext/hash/indifferent_access'
 
 Service.config.database_config = if ENV[ 'DATABASE_URL' ]
   ENV[ 'DATABASE_URL' ]
@@ -47,7 +48,7 @@ else
   path           = File.join( Service.config.root, 'config', 'database.yml' )
   erb_yaml_file  = File.read( path )
   pure_yaml_file = ERB.new( erb_yaml_file ).result
-  parsed_file    = YAML.load( pure_yaml_file )
+  parsed_file    = HashWithIndifferentAccess[YAML.safe_load( pure_yaml_file, aliases: true )]
 
   if parsed_file.has_key?( Service.config.env )
     parsed_file[ Service.config.env ]

@@ -15,8 +15,8 @@
 
 # ActiveRecord and PostgreSQL
 
-  gem 'activerecord',  '~> 5.2', :require => 'active_record'
-  gem 'activesupport', '~> 5.2', :require => 'active_support'
+  gem 'activerecord',  '~> 6.0', :require => 'active_record'
+  gem 'activesupport', '~> 6.0', :require => 'active_support'
   gem 'pg',            '~> 1.0'
 
 # Instrumentation
@@ -51,7 +51,6 @@
   # https://github.com/pond/rackdb
   #
   gem 'racksh', '~> 1.0'
-  gem 'rackdb', '~> 2.0'
 
 # Development and test support
 

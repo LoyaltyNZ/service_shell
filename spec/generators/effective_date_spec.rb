@@ -161,13 +161,27 @@ RSpec.describe Generators::EffectiveDate do
             r = second_record
             r.id = '1234_0'
             r.uuid = '9876' #set the uuid to avoid the overlap constraint
-            expect{ r.save }.to raise_error( ActiveRecord::RecordNotUnique )
+            begin
+              r.save
+              # If save succeeds, the exception was not thrown and the test fails
+              expect(true).to be(false)
+            rescue => ex
+              expect(ex.cause.to_s ).to match( /PG::UniqueViolation/ )
+              expect(ex.cause.to_s ).to match( /duplicate key value violates unique constraint/ )
+            end
           end
         end
 
         context 'with a duplicate uuid/start/end' do
           it 'raises an error' do
-            expect{ second_record.save }.to raise_error( ActiveRecord::RecordNotUnique )
+            begin
+              second_record.save
+              # If save succeeds, the exception was not thrown and the test fails
+              expect(true).to be(false)
+            rescue => ex
+              expect(ex.cause.to_s).to match(/PG::UniqueViolation/)
+              expect(ex.cause.to_s).to match(/ duplicate key value violates unique constraint/)
+            end
           end
         end
 
@@ -210,8 +224,13 @@ RSpec.describe Generators::EffectiveDate do
                   r = second_record
                   r.effective_start = first_record.effective_end - 1.hour
                   r.effective_end = first_record.effective_end + 2.hours
-
-                  expect{ r.save }.to raise_error( ActiveRecord::StatementInvalid, /PG::ExclusionViolation/ )
+                  begin
+                    r.save
+                    # If save succeeds, the exception was not thrown and the test fails
+                    expect(true).to be(false)
+                  rescue => ex
+                    expect(ex.cause.to_s).to match(/PG::ExclusionViolation/)
+                  end
                 end
               end
               context 'when the second start and end is within the first start end' do
@@ -219,8 +238,13 @@ RSpec.describe Generators::EffectiveDate do
                   r = second_record
                   r.effective_start = first_record.effective_end - 10.minutes
                   r.effective_end = first_record.effective_end - 2.minutes
-
-                  expect{ r.save }.to raise_error( ActiveRecord::StatementInvalid, /PG::ExclusionViolation/ )
+                  begin
+                    r.save
+                    # If save succeeds, the exception was not thrown and the test fails
+                    expect(true).to be(false)
+                  rescue => ex
+                    expect(ex.cause.to_s).to match(/PG::ExclusionViolation/)
+                  end
                 end
               end
               context 'when the first is within the seconds range' do
@@ -228,8 +252,13 @@ RSpec.describe Generators::EffectiveDate do
                   r = second_record
                   r.effective_start = first_record.effective_start - 2.hour
                   r.effective_end = first_record.effective_start + 5.hours
-
-                  expect{ r.save }.to raise_error( ActiveRecord::StatementInvalid, /PG::ExclusionViolation/ )
+                  begin
+                    r.save
+                    # If save succeeds, the exception was not thrown and the test fails
+                    expect(true).to be(false)
+                  rescue => ex
+                    expect(ex.cause.to_s).to match(/PG::ExclusionViolation/)
+                  end
                 end
               end
               context 'when the firsts end is within the seconds range' do
@@ -237,8 +266,13 @@ RSpec.describe Generators::EffectiveDate do
                   r = second_record
                   r.effective_start = first_record.effective_end - 1.hour
                   r.effective_end = first_record.effective_end + 2.hours
-
-                  expect{ r.save }.to raise_error( ActiveRecord::StatementInvalid, /PG::ExclusionViolation/ )
+                  begin
+                    r.save
+                    # If save succeeds, the exception was not thrown and the test fails
+                    expect(true).to be(false)
+                  rescue => ex
+                    expect(ex.cause.to_s).to match(/PG::ExclusionViolation/)
+                  end
                 end
               end
             end
