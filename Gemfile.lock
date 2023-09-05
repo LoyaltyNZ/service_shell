@@ -26,7 +26,7 @@ GEM
     byebug (11.1.3)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
-    dalli (2.7.11)
+    dalli (3.2.5)
     database_cleaner (1.99.0)
     diff-lcs (1.5.0)
     docile (1.4.0)
@@ -54,8 +54,8 @@ GEM
       ffi
       guard (~> 2.0)
       spoon
-    hoodoo (2.12.10)
-      dalli (~> 2.7)
+    hoodoo (3.3.2)
+      dalli (~> 3.2.3)
       rack
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -134,7 +134,7 @@ DEPENDENCIES
   faker (~> 1.9)
   guard-rspec
   guard-shotgun
-  hoodoo (~> 2.7)
+  hoodoo (~> 3.3)
   pg (~> 1.0)
   pry-byebug
   rack (~> 2.0)
@@ -148,7 +148,7 @@ DEPENDENCIES
   timecop (~> 0.9)
 
 RUBY VERSION
-   ruby 2.7.3p183
+   ruby 3.1.2p20
 
 BUNDLED WITH
    1.17.3

@@ -1,6 +1,6 @@
 # Prerequisites
 
-  ruby   '2.7.3'
+  ruby   File.read('.ruby-version').chomp
   source 'https://rubygems.org'
 
 # Fundamental architecture
@@ -11,7 +11,7 @@
   #   gem 'alchemy-flux', '~> 1.3'
 
   gem 'rack',         '~> 2.0'
-  gem 'hoodoo',       '~> 2.7'
+  gem 'hoodoo',       '~> 3.3'
 
 # ActiveRecord and PostgreSQL
 
