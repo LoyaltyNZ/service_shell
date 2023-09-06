@@ -9,17 +9,16 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (6.1.7.6)
-      activesupport (= 6.1.7.6)
-    activerecord (6.1.7.6)
-      activemodel (= 6.1.7.6)
-      activesupport (= 6.1.7.6)
-    activesupport (6.1.7.6)
+    activemodel (7.0.7.2)
+      activesupport (= 7.0.7.2)
+    activerecord (7.0.7.2)
+      activemodel (= 7.0.7.2)
+      activesupport (= 7.0.7.2)
+    activesupport (7.0.7.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-      zeitwerk (~> 2.3)
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
@@ -119,14 +118,13 @@ GEM
     timecop (0.9.8)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    zeitwerk (2.6.11)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 6.0)
-  activesupport (~> 6.0)
+  activerecord (~> 7.0)
+  activesupport (~> 7.0)
   bundler-audit
   byebug
   database_cleaner (~> 1.7)

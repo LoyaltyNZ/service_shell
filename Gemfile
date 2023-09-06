@@ -15,8 +15,8 @@
 
 # ActiveRecord and PostgreSQL
 
-  gem 'activerecord',  '~> 6.0', :require => 'active_record'
-  gem 'activesupport', '~> 6.0', :require => 'active_support'
+  gem 'activerecord',  '~> 7.0', :require => 'active_record'
+  gem 'activesupport', '~> 7.0', :require => 'active_support'
   gem 'pg',            '~> 1.0'
 
 # Instrumentation
