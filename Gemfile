@@ -1,6 +1,6 @@
 # Prerequisites
 
-  ruby   '2.7.3'
+  ruby   File.read('.ruby-version').chomp
   source 'https://rubygems.org'
 
 # Fundamental architecture
@@ -11,12 +11,12 @@
   #   gem 'alchemy-flux', '~> 1.3'
 
   gem 'rack',         '~> 2.0'
-  gem 'hoodoo',       '~> 2.7'
+  gem 'hoodoo',       '~> 3.3'
 
 # ActiveRecord and PostgreSQL
 
-  gem 'activerecord',  '~> 5.2', :require => 'active_record'
-  gem 'activesupport', '~> 5.2', :require => 'active_support'
+  gem 'activerecord',  '~> 6.0', :require => 'active_record'
+  gem 'activesupport', '~> 6.0', :require => 'active_support'
   gem 'pg',            '~> 1.0'
 
 # Instrumentation
@@ -51,7 +51,6 @@
   # https://github.com/pond/rackdb
   #
   gem 'racksh', '~> 1.0'
-  gem 'rackdb', '~> 2.0'
 
 # Development and test support
 

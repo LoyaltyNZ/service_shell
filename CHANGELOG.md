@@ -1,5 +1,15 @@
 # Change log
 
+## 1.0.0
+
+- Update Ruby from `2.7.3` to `3.1.2` [DS-2919](https://loyaltynz.atlassian.net/browse/FT-2919)
+- Updated Hoodoo from `2.7` to `3.3`
+- Update `activerecord` and `activesupport` to `v6.0`
+- When updating `activerecord` from `v5.2` to `v6.0` tests in the `spec/generators/effective_date_spec.rb`
+  file were failing due to `activerecord` wrapping the expected errors in another error. tests have
+  been updated to reflect this.
+- Updated travis.yml to use ruby `3.1.2`
+
 ## 0.0.2
 
 - Update Postgres to version 13.3 [FT-811](https://loyaltynz.atlassian.net/browse/FT-811)
