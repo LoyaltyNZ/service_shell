@@ -1,5 +1,9 @@
 # Change log
 
+## 1.0.1
+
+- Update `activerecord` and `activesupport` to `v7.0` [DS-3685](https://loyaltynz.atlassian.net/browse/DS-3685)
+
 ## 1.0.0
 
 - Update Ruby from `2.7.3` to `3.1.2` [DS-2919](https://loyaltynz.atlassian.net/browse/FT-2919)
