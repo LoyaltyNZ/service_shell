@@ -112,7 +112,7 @@
     # Strategies for cleaning databases. Can be used to ensure a clean state
     # for testing.
     #
-    gem 'database_cleaner', '~> 1.7'
+    gem 'database_cleaner', '~> 2.0'
 
     # Faker, a port of Data::Faker from Perl, is used to easily generate fake
     # data: names, addresses, phone numbers, etc.

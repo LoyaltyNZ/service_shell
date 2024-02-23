@@ -26,7 +26,12 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
     dalli (3.2.5)
-    database_cleaner (1.99.0)
+    database_cleaner (2.0.2)
+      database_cleaner-active_record (>= 2, < 3)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     diff-lcs (1.5.0)
     docile (1.4.0)
     factory_bot (4.11.1)
@@ -108,7 +113,7 @@ GEM
       simplecov-html (~> 0.11)
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
-    simplecov-rcov (0.3.1)
+    simplecov-rcov (0.3.7)
       simplecov (>= 0.4.1)
     simplecov_json_formatter (0.1.4)
     spoon (0.0.6)
@@ -127,7 +132,7 @@ DEPENDENCIES
   activesupport (~> 7.0)
   bundler-audit
   byebug
-  database_cleaner (~> 1.7)
+  database_cleaner (~> 2.0)
   factory_bot (~> 4.10)
   faker (~> 1.9)
   guard-rspec
@@ -146,7 +151,7 @@ DEPENDENCIES
   timecop (~> 0.9)
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.2.2p53
 
 BUNDLED WITH
-   1.17.3
+   2.5.6
