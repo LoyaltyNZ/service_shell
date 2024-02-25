@@ -2,8 +2,11 @@
 
 ## 1.0.2
 
-- Updated ruby to 3.2.2 (was 3.1.2) [DS-4133](https://loyaltynz.atlassian.net/browse/DS-4133)
-  
+- Updated ruby to 3.3.0 (was 3.1.2) [DS-4133](https://loyaltynz.atlassian.net/browse/DS-4133)
+- Squash deprecation warnings:
+  - Add to Gemfile any gems that will be removed from the standard library (https://www.ruby-lang.org/en/news/2023/12/25/ruby-3-3-0-released/)
+  - `ActiveRecord::Base.default_timezone` -> `ActiveRecord.default_timezone`
+
 ## 1.0.1
 
 - Update `activerecord` and `activesupport` to `v7.0` [DS-3685](https://loyaltynz.atlassian.net/browse/DS-3685)
@@ -24,6 +27,7 @@
 - Added CHANGELOG.md
 - Updated Ruby version to `2.7.3`
 - Fixed audit vulnerabilities via `bundle update rdoc rake rack json activesupport activerecord`
+
 ## 0.0.1
 
 Initial version

@@ -29,7 +29,7 @@
   # - https://github.com/MindscapeHQ/raygun4ruby
   #
   # gem 'newrelic_rpm', '~> 5.3'
-  # gem 'ddtrace',      '~> 0.13'
+  gem 'ddtrace',      '~> 1.20'
   # gem 'airbrake',     '~> 7.3'
   # gem 'raygun4ruby',  '~> 2.7'
 
@@ -51,6 +51,11 @@
   # https://github.com/pond/rackdb
   #
   gem 'racksh', '~> 1.0'
+
+  gem "bigdecimal", "~> 3"
+  gem "drb", "~> 2"
+  gem "mutex_m", "~> 0.2"
+  gem "observer", "~> 0.1"
 
 # Development and test support
 

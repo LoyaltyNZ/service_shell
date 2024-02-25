@@ -57,7 +57,7 @@ else
   end
 end
 
-ActiveRecord::Base.default_timezone = :utc
+ActiveRecord.default_timezone = :utc
 ActiveRecord::Base.establish_connection( Service.config.database_config )
 
 # Load a config/environments/<foo>.rb file (if it exists) to do any further
