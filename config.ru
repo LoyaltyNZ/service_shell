@@ -23,7 +23,7 @@ end
 #
 if defined?( Datadog )
 
-  use Datadog::Contrib::Rack::TraceMiddleware
+  use Datadog::Tracing::Contrib::Rack::TraceMiddleware
 
 end
 

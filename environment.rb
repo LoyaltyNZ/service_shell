@@ -57,14 +57,14 @@ else
   end
 end
 
-ActiveRecord::Base.default_timezone = :utc
+ActiveRecord.default_timezone = :utc
 ActiveRecord::Base.establish_connection( Service.config.database_config )
 
 # Load a config/environments/<foo>.rb file (if it exists) to do any further
 # environment-specific work.
 
 specific_environment = "config/environments/#{ Service.config.env }.rb"
-require specific_environment if File.exists?( specific_environment )
+require specific_environment if File.exist?( specific_environment )
 
 # Support the useful Rails-ism of a "config/initializers" folder with an
 # alphabetical-order-executed set of setup files.
