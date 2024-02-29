@@ -23,12 +23,10 @@
 
   # Uncomment / remove as required.
   #
-  # - https://github.com/newrelic/rpm
   # - https://github.com/DataDog/dd-trace-rb
   # - https://github.com/airbrake/airbrake-ruby
   # - https://github.com/MindscapeHQ/raygun4ruby
   #
-  # gem 'newrelic_rpm', '~> 5.3'
   gem 'ddtrace',      '~> 1.20'
   # gem 'airbrake',     '~> 7.3'
   # gem 'raygun4ruby',  '~> 2.7'

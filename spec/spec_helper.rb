@@ -26,7 +26,6 @@ end
 # Now wake up the test suite properly.
 
 ENV[ 'RACK_ENV' ] = 'test'
-ENV[ 'NEWRELIC_AGENT_ENABLED' ] = 'false' # A hack to avoid New Relic entirely
 
 require File.expand_path( '../../environment', __FILE__ )
 
