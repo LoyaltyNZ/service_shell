@@ -1,5 +1,12 @@
 # Change log
 
+## 1.0.3
+
+Automated Monthly Patching Mar24
+- Gems updated:
+  - drb 2.2.1 (was 2.2.0)
+  - pg 1.5.6 (was 1.5.5) with native extensions
+
 ## 1.0.2
 
 - Updated ruby to 3.3.0 (was 3.1.2) [DS-4133](https://loyaltynz.atlassian.net/browse/DS-4133)
