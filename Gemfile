@@ -15,8 +15,8 @@
 
 # ActiveRecord and PostgreSQL
 
-  gem 'activerecord',  '~> 7.0', :require => 'active_record'
-  gem 'activesupport', '~> 7.0', :require => 'active_support'
+  gem 'activerecord',  '~> 7.1', :require => 'active_record'
+  gem 'activesupport', '~> 7.1', :require => 'active_support'
   gem 'pg',            '~> 1.0'
 
 # Instrumentation
@@ -28,12 +28,10 @@
   # - https://github.com/MindscapeHQ/raygun4ruby
   #
   gem 'ddtrace',      '~> 1.20'
-  # gem 'airbrake',     '~> 7.3'
-  # gem 'raygun4ruby',  '~> 2.7'
 
 # Maintenance
 
-  gem 'rake', '~> 12.3'
+  gem 'rake',         '~> 12.3'
 
   # For documentation generation via 'rake rdoc' and 'rake rerdoc'.
   #
@@ -48,12 +46,12 @@
   # https://github.com/sickill/racksh
   # https://github.com/pond/rackdb
   #
-  gem 'racksh', '~> 1.0'
+  gem 'racksh',       '~> 1.0'
 
-  gem "bigdecimal", "~> 3"
-  gem "drb", "~> 2"
-  gem "mutex_m", "~> 0.2"
-  gem "observer", "~> 0.1"
+  gem 'bigdecimal',   '~> 3'
+  gem 'drb',          '~> 2'
+  gem 'mutex_m',      '~> 0.2'
+  gem 'observer',     '~> 0.1'
 
 # Development and test support
 

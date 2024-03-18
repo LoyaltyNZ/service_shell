@@ -9,23 +9,31 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (7.0.8.1)
-      activesupport (= 7.0.8.1)
-    activerecord (7.0.8.1)
-      activemodel (= 7.0.8.1)
-      activesupport (= 7.0.8.1)
-    activesupport (7.0.8.1)
+    activemodel (7.1.3.2)
+      activesupport (= 7.1.3.2)
+    activerecord (7.1.3.2)
+      activemodel (= 7.1.3.2)
+      activesupport (= 7.1.3.2)
+      timeout (>= 0.4.0)
+    activesupport (7.1.3.2)
+      base64
+      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
+      mutex_m
       tzinfo (~> 2.0)
-    bigdecimal (3.1.6)
+    base64 (0.2.0)
+    bigdecimal (3.1.7)
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
     byebug (11.1.3)
     coderay (1.1.3)
     concurrent-ruby (1.2.3)
+    connection_pool (2.4.1)
     dalli (3.2.8)
     database_cleaner (2.0.2)
       database_cleaner-active_record (>= 2, < 3)
@@ -76,7 +84,7 @@ GEM
       drb
       mutex_m
       rack
-    i18n (1.14.1)
+    i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     libdatadog (5.0.0.1.0)
     libddwaf (1.14.0.0.0)
@@ -86,7 +94,7 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.10)
     lumberjack (1.2.10)
     method_source (1.0.0)
-    minitest (5.19.0)
+    minitest (5.22.3)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     nenv (0.3.0)
@@ -142,6 +150,7 @@ GEM
     stringio (3.0.9)
     thor (1.2.2)
     timecop (0.9.8)
+    timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
 
@@ -149,8 +158,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 7.0)
-  activesupport (~> 7.0)
+  activerecord (~> 7.1)
+  activesupport (~> 7.1)
   bigdecimal (~> 3)
   bundler-audit
   byebug
