@@ -1,5 +1,9 @@
 # Change log
 
+## 1.0.4
+
+- Updated ActiveSupport and ActiveRecord to 7.1 (was 7.0) [DS-4129](https://loyaltynz.atlassian.net/browse/DS-4129)
+
 ## 1.0.3
 
 Automated Monthly Patching Mar24
