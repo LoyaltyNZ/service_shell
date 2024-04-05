@@ -1,5 +1,12 @@
 # Change log
 
+## 1.0.5
+
+Automated Monthly Patching Mar24
+- Gems updated:
+  - rack 2.2.9 (was 2.2.8.1)
+  - rdoc 6.5.1.1 (was 6.5.0)
+
 ## 1.0.4
 
 - Updated ActiveSupport and ActiveRecord to 7.1 (was 7.0) [DS-4129](https://loyaltynz.atlassian.net/browse/DS-4129)
