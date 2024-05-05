@@ -1,5 +1,11 @@
 # Change log
 
+## 1.0.6
+
+Automated Monthly Patching May24
+- Gems updated:
+  - hoodoo 3.5.6 (was 3.5.3)
+
 ## 1.0.5
 
 Automated Monthly Patching Mar24
