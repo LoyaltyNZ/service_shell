@@ -1,14 +1,13 @@
 name: Ruby CI
 
-on: pull_request
-
-# env:
-#   DB_HOST: localhost
-#   DB_USERNAME: postgres
-#   DB_PASSWORD: postgres
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  build:
+  tests:
     runs-on: ubuntu-latest
 
     services:
@@ -40,6 +39,9 @@ jobs:
         bundler_version=$(grep -A 1 "BUNDLED WITH" Gemfile.lock | sed -n 2p | tr -d ' ')
         gem install bundler --version "${bundler_version}"
         bundler version
+        bundle config --local deployment true
+        bundle config --local path vendor/bundle
+        bundle install --jobs 4 --retry 3
     - name: Run tests
       env:
         RACK_ENV: test
