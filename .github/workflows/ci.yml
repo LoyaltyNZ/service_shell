@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  tests:
+  pr_checks:
     runs-on: ubuntu-latest
 
     services:
@@ -54,20 +54,5 @@ jobs:
         bundle exec rake db:migrate --trace
         bundle exec bundle-audit update && bundle exec bundle-audit check
         bundle exec rspec spec --backtrace
-
-
-
-
-
-    # - name: Run tests
-    #   env:
-    #     RACK_ENV: test
-    #     TZ: Pacific/Auckland
-    #     POSTGRES_HOST: localhost
-    #     POSTGRES_PORT: 5432
-    #     PGPASSWORD: postgres
-    #   run: |
-    #     psql -c 'create database service_shell_test;' -U postgres -h localhost 
-
 
 
