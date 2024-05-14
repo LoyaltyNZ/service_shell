@@ -26,7 +26,7 @@ GEM
       mutex_m
       tzinfo (~> 2.0)
     base64 (0.2.0)
-    bigdecimal (3.1.7)
+    bigdecimal (3.1.8)
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
@@ -41,12 +41,12 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
-    datadog-ci (0.7.0)
+    datadog-ci (0.8.3)
       msgpack
-    ddtrace (1.20.0)
-      datadog-ci (~> 0.7.0)
+    ddtrace (1.23.0)
+      datadog-ci (~> 0.8.1)
       debase-ruby_core_source (= 3.3.1)
-      libdatadog (~> 5.0.0.1.0)
+      libdatadog (~> 7.0.0.1.0)
       libddwaf (~> 1.14.0.0.0)
       msgpack
     debase-ruby_core_source (3.3.1)
@@ -57,7 +57,7 @@ GEM
       activesupport (>= 3.0.0)
     faker (1.9.6)
       i18n (>= 0.7)
-    ffi (1.15.5)
+    ffi (1.16.3)
     formatador (1.1.0)
     guard (2.18.1)
       formatador (>= 0.2.4)
@@ -77,7 +77,7 @@ GEM
       ffi
       guard (~> 2.0)
       spoon
-    hoodoo (3.5.3)
+    hoodoo (3.5.7)
       bigdecimal
       dalli (~> 3.2.3)
       ddtrace (~> 1.0)
@@ -86,7 +86,7 @@ GEM
       rack
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
-    libdatadog (5.0.0.1.0)
+    libdatadog (7.0.0.1.0)
     libddwaf (1.14.0.0.0)
       ffi (~> 1.0)
     listen (3.8.0)

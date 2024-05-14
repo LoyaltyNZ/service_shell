@@ -1,8 +1,19 @@
 # Change log
 
-## 1.0.6
+## 1.0.7
 
 - Moved from Travis CI to Github Actions [TO-7516](https://loyaltynz.atlassian.net/browse/TO-7516)
+
+## 1.0.6
+
+Automated Monthly Patching May24
+- Gems updated:
+  - hoodoo 3.5.7 (was 3.5.3)
+  - bigdecimal 3.1.8 (was 3.1.7)
+  - datadog-ci 0.8.3 (was 0.7.0)
+  - ddtrace 1.23.0 (was 1.20.0)
+  - ffi 1.16.3 (was 1.15.5)
+  - libdatadog 7.0.0.1.0 (was 5.0.0.1.0)
 
 ## 1.0.5
 
