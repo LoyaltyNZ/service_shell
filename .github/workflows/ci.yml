@@ -1,0 +1,58 @@
+name: Ruby CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  pr_checks:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:13.3
+        env:
+          POSTGRES_DB: postgres        
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          DB_HOST: localhost
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 10s
+          --health-retries 10
+        ports:
+          - 5432:5432
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3.0
+    - name: Install PostgreSQL client
+      run: sudo apt-get install -y postgresql-client
+    - name: Install dependencies
+      run: |
+        bundler_version=$(grep -A 1 "BUNDLED WITH" Gemfile.lock | sed -n 2p | tr -d ' ')
+        gem install bundler --version "${bundler_version}"
+        bundler version
+        bundle config --local deployment true
+        bundle config --local path vendor/bundle
+        bundle install --jobs 4 --retry 3
+    - name: Run tests
+      env:
+        RACK_ENV: test
+        TZ: Pacific/Auckland
+        POSTGRES_HOST: localhost
+        POSTGRES_PORT: 5432
+        PGPASSWORD: postgres
+      run: |
+        psql -c 'create database service_shell_test;' -U postgres -h localhost
+        bundle exec rake db:migrate --trace
+        bundle exec bundle-audit update && bundle exec bundle-audit check
+        bundle exec rspec spec --backtrace
+
+

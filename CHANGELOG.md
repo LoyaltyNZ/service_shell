@@ -1,5 +1,9 @@
 # Change log
 
+## 1.0.7
+
+- Moved from Travis CI to Github Actions [TO-7516](https://loyaltynz.atlassian.net/browse/TO-7516)
+
 ## 1.0.6
 
 Automated Monthly Patching May24
