@@ -8,8 +8,8 @@ on:
 
 jobs:
   pr_checks:
-    runs-on: ubuntu-latest
-
+    runs-on: loyaltynz-arc-runner-set
+    container: ruby:3.3.0
     services:
       postgres:
         image: postgres:13.3
@@ -28,10 +28,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.3.0
+    # - name: Set up Ruby
+    #   uses: ruby/setup-ruby@v1
+    #   with:
+    #     ruby-version: 3.3.0
     - name: Install PostgreSQL client
       run: sudo apt-get install -y postgresql-client
     - name: Install dependencies
@@ -54,5 +54,7 @@ jobs:
         bundle exec rake db:migrate --trace
         bundle exec bundle-audit update && bundle exec bundle-audit check
         bundle exec rspec spec --backtrace
+
+# teste
 
 
