@@ -1,5 +1,15 @@
 # Change log
 
+## 1.0.8
+
+Automated Monthly Patching Jun24
+- Gems updated:
+  - timecop 0.9.9 (was 0.9.8)
+  - i18n 1.14.5 (was 1.14.4)
+  - activesupport 7.1.3.3 (was 7.1.3.2)
+  - activemodel 7.1.3.3 (was 7.1.3.2)
+  - activerecord 7.1.3.3 (was 7.1.3.2)
+
 ## 1.0.7
 
 - Moved from Travis CI to Github Actions [TO-7516](https://loyaltynz.atlassian.net/browse/TO-7516)
