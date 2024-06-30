@@ -1,5 +1,15 @@
 # Change log
 
+## 1.0.9
+
+Automated Monthly Patching Jun24
+- Gems updated:
+  - timecop 0.9.10 (was 0.9.9)
+  - ddtrace 1.23.2 (was 1.23.0) with native extensions
+  - activesupport 7.1.3.4 (was 7.1.3.3)
+  - activemodel 7.1.3.4 (was 7.1.3.3)
+  - activerecord 7.1.3.4 (was 7.1.3.3)
+
 ## 1.0.8
 
 Automated Monthly Patching Jun24
