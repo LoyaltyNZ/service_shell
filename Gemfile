@@ -10,8 +10,8 @@
   #
   #   gem 'alchemy-flux', '~> 1.3'
 
-  gem 'rack',         '~> 2.0'
-  gem 'hoodoo',       '~> 3.3'
+  gem 'rack',         '~> 3.1'
+  gem 'hoodoo',       '~> 4.0'
 
 # ActiveRecord and PostgreSQL
 
@@ -99,11 +99,11 @@
 
     # Behaviour Driven Development for Ruby.
     #
-    gem 'rspec',            '~> 3.8'
+    gem 'rspec',            '~> 3.13'
 
     # Rack::Test is a small, simple testing API for Rack apps.
     #
-    gem 'rack-test',        '~> 1.1'
+    gem 'rack-test',        '~> 2.1'
 
     # factory_bot provides a framework and DSL for defining and using
     # factories.
@@ -118,7 +118,7 @@
     # Faker, a port of Data::Faker from Perl, is used to easily generate fake
     # data: names, addresses, phone numbers, etc.
     #
-    gem 'faker',            '~> 1.9'
+    gem 'faker',            '~> 3.3'
 
     # Code coverage reports, generated in the 'coverage' folder when tests run.
     #
